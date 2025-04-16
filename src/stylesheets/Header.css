@@ -1,0 +1,5 @@
+.div-header {
+    min-height: 1vh;
+    max-height: fit-content;
+    border: 1px solid blue;
+}
