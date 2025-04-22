@@ -44,7 +44,7 @@ function Login() {
         return () => window.removeEventListener("resize", handleResize);
     }, [])
 
-    const transitionLoginSpaceRounded = windowHeight > 600 ? ' md:rounded-tl-[25em]' : '';
+    const transitionLoginSpaceRounded = windowHeight > 600 ? ' lg:rounded-tl-[25em]' : '';
 
     const heightContainer = windowHeight < 600 ? 'h-full' : 'md:h-3/4';
 
@@ -114,20 +114,20 @@ function Login() {
                     style={{ backgroundImage: `url(${LoginImages[nextLoginImageIndex]})` }}
                 />
                 <div className={'absolute inset-0 z-30 flex justify-end overflow-scroll w-full h-full bg-transparent'}>
-                    <div className={'flex box-border overflow-visible w-full md:w-1/3 min-w-128 min-h-screen h-screen justify-end flex-col gap-10 bg-linear-to-br from-red-300/80  to-blue-600/80 md:transition-[border-radius] transition-[width] duration-500 ' + transitionLoginSpaceRounded} onKeyDown={checkKey}>
-                        <div className={'flex flex-col items-center justify-center w-full gap-15 justify-start py-5 transition-all duration-500 ' + heightContainer}>
+                    <div className={'flex box-border overflow-visible w-full lg:w-1/3 md:min-w-128 min-h-screen h-screen justify-end flex-col gap-10 bg-linear-to-br from-red-300/80  to-blue-600/80 md:transition-[border-radius] transition-[width] duration-500 ' + transitionLoginSpaceRounded} onKeyDown={checkKey}>
+                        <div className={'flex 2xl:flex-wrap flex-col items-center w-full gap-15 justify-start py-5 transition-all duration-500 ' + heightContainer}>
                             <div className='transition-all duration-500'>
                                 <h1 className='text-4xl box-decoration-clone text-white py-1 pl-5 pr-15 rounded-r-md'>
                                     <AppLogo logoSize='2' />
                                 </h1>
                             </div>
-                            <div className='flex flex-col gap-10 w-[25rem] shadow-xl rounded-2xl p-5 box-content items-center justify-center bg-white/75 transition-all duration-500'>
+                            <div className='flex flex-col gap-10 w-full md:w-[25rem] shadow-xl md:rounded-2xl py-5 md:px-5 box-content items-center justify-center bg-white/75 transition-all duration-500'>
                                 <div className='flex flex-wrap flex-col gap-10 w-full'>
-                                    <div className='flex gap-2 justify-center'>
+                                    <div className='flex flex-wrap gap-2 justify-center'>
                                         <label className='w-[8rem] rounded-md p-1 text-xl text-shadow-md'>Username</label>
                                         <input className='w-[15rem] bg-white rounded-md p-1 text-md border-1 border-sky-500 hover:border-green-500 shadow-md' id="inp-username" value={username} placeholder="Enter username" onChange={handleUsername} />
                                     </div>
-                                    <div className='flex gap-2 justify-center'>
+                                    <div className='flex flex-wrap gap-2 justify-center'>
                                         <label className='w-[8rem] rounded-md p-1 text-xl text-shadow-md'>Password</label>
                                         <input className='w-[15rem] bg-white rounded-md p-1 text-md border-1 border-sky-500 hover:border-green-500 shadow-md' id="inp-password" value={password} placeholder="Enter password" onChange={handlePassword} type='password' />
                                     </div>
