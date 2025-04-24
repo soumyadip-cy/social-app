@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@theme {
+    --breakpoint-720p: 720px;
+    --breakpoint-1080p: 1080px;
+    --breakpoint-1440p: 1440px;
+    --breakpoint-2160p: 2160px;
+}

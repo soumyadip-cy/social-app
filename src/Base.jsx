@@ -5,10 +5,6 @@ import Login from "./Login.jsx";
 
 function Base() {
 
-    // return (
-    //     <>Test</>
-    // );
-
     return (
         <HashRouter>
             <Routes>
