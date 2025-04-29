@@ -11,13 +11,15 @@ function Login() {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
 
+
+    //useMemo() hook is used to create a new array only when this component is loaded and stop the new array from being created everytime this component is loaded.
     const LoginImages = useMemo(() =>
         [
             [LoginImage1, "https://unsplash.com/@mikejerskine?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"],
             [LoginImage2, "https://unsplash.com/@felixrstg?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"],
             [LoginImage3, "https://unsplash.com/@timmossholder?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"]
         ],
-        [LoginImage1, LoginImage2, LoginImage3]);
+        []);
 
     const [currentLoginImageIndex, setCurrentLoginImageIndex] = useState(0);
     const [nextLoginImageIndex, setNextLoginImageIndex] = useState(1);
@@ -95,8 +97,6 @@ function Login() {
             handleLogin();
     };
 
-
-    // Make the background image transition smooth
     return (
         <>
             <div className='absolute inset-0 bg-indigo-950'>
@@ -104,11 +104,11 @@ function Login() {
                     className={`absolute inset-0 h-screen w-screen bg-cover bg-center bg-no-repeat transition-opacity duration-1000 z-20 ${fadeIn ? 'opacity-0' : 'opacity-100'}`}
                     style={{ backgroundImage: `url(${LoginImages[currentLoginImageIndex][0]})` }}
                 />
-                <a className='absolute bottom-0 left-0 z-50 text-white cursor-pointer' href={LoginImages[currentLoginImageIndex][1]}>
+                <a className='absolute bottom-0 left-0 z-150 text-white cursor-pointer' target='_blank' href={LoginImages[currentLoginImageIndex][1]}>
                     Image attribution
                 </a>
                 <div
-                    className={`absolute inset-0 h-screen w-screen bg-cover bg-center bg-no-repeat transition-opacity duration-1000 z-10`}
+                    className={`absolute inset-0 h-screen w-screen bg-cover bg-center bg-no-repeat z-10`}
                     style={{ backgroundImage: `url(${LoginImages[nextLoginImageIndex][0]})` }}
                 />
                 <div className={'absolute inset-0 z-100 flex justify-end overflow-scroll w-full h-full bg-transparent'}>
