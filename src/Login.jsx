@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import AppLogo from './AppLogo';
 import LoginImage1 from './assets/social-app-login-image-1.jpg';
 import LoginImage2 from './assets/social-app-login-image-2.jpg';
@@ -8,8 +8,11 @@ import './stylesheets/Login.css';
 
 function Login() {
 
-    const [username, setUsername] = useState();
-    const [password, setPassword] = useState();
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const usernameRef = useRef();
+    const passwordRef = useRef();
 
 
     //useMemo() hook is used to create a new array only when this component is loaded and stop the new array from being created everytime this component is loaded.
@@ -24,13 +27,19 @@ function Login() {
     const [currentLoginImageIndex, setCurrentLoginImageIndex] = useState(0);
     const [nextLoginImageIndex, setNextLoginImageIndex] = useState(1);
 
-    // This would preload all the images.
+    // This would preload all the images
     useEffect(() => {
         LoginImages.forEach(imageSource => {
             const img = new Image();
             img.src = imageSource[0];
         });
     }, [LoginImages]);
+
+    useEffect(() => {
+
+        usernameRef.current.focus();
+
+    }, []);
 
     const [windowHeight, setWindowHeight] = useState(window.innerHeight);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -80,21 +89,34 @@ function Login() {
 
     const navigate = useNavigate();
 
+    const [invalidUsername, setInvalidUsername] = useState(false);
+    const [invalidPassword, setInvalidPassword] = useState(false);
+
     const handleLogin = () => {
-        if (username == password)
-            navigate("/", { replace: true, state: { user: username, pass: password } })
+        if (username == "user" && password == "user")
+            navigate("/", { replace: true, state: { user: username, pass: password } });
         else {
-            return (
-                <>
-                    <h1>Incorrect User name</h1>
-                </>
-            );
+            setInvalidUsername(true);
+            setInvalidPassword(true);
+            alert("Invalid username and password !");
         }
     };
 
     const checkKey = (e) => {
-        if (e.key == "Enter")
-            handleLogin();
+
+        if (e.key == "Enter") {
+            if (username == "" && password == "") {
+                setInvalidUsername(true);
+                setInvalidPassword(true);
+            } else if (username == "") {
+                setInvalidUsername(true);
+                usernameRef.current.focus();
+            } else if (password == "") {
+                setInvalidPassword(true);
+                passwordRef.current.focus();
+            } else
+                handleLogin();
+        }
     };
 
     return (
@@ -123,11 +145,11 @@ function Login() {
                                 <div className='flex flex-wrap flex-col gap-10 w-full'>
                                     <div className='flex flex-wrap gap-2 justify-between px-10'>
                                         <label className='w-[1/5] rounded-md p-1 text-[125%] text-shadow-md'>Username</label>
-                                        <input className='w-[3/5] bg-white rounded-md p-1 border-1 border-sky-500 hover:border-green-500 shadow-md' id="inp-username" value={username} placeholder="Enter username" onChange={handleUsername} />
+                                        <input className={`w-[3/5] bg-white rounded-md p-1 border-2 hover:border-green-500 shadow-md ${invalidUsername ? 'border-red-500' : 'border-sky-500'}`} id="inp-username" ref={usernameRef} value={username} placeholder="Enter username" onChange={handleUsername} />
                                     </div>
                                     <div className='flex flex-wrap gap-2 justify-between px-10'>
                                         <label className='w-[1/5] rounded-md p-1 text-[125%] text-shadow-md'>Password</label>
-                                        <input className='w-[3/5] bg-white rounded-md p-1 border-1 border-sky-500 hover:border-green-500 shadow-md' id="inp-password" value={password} placeholder="Enter password" onChange={handlePassword} type='password' />
+                                        <input className={`w-[3/5] bg-white rounded-md p-1 border-2 hover:border-green-500 shadow-md ${invalidPassword ? 'border-red-500' : 'border-sky-500'}`} id="inp-password" ref={passwordRef} value={password} placeholder="Enter password" onChange={handlePassword} type='password' />
                                     </div>
                                 </div>
                                 <div className='flex flex-col gap-2 items-center justify-center'>
