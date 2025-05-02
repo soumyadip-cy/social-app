@@ -7,7 +7,10 @@ Social App is a **frontend project** made using **React.js** and **Tailwind CSS*
 
 ### Features
 
-1. Login page: Responsive design, Changing background image, Authentication check visuals.
+1. Navigation is done using react-router-dom.
+React router hooks used: `useNavigate()` and `useLocation`.
+
+2. Login page: Responsive design. Changing background image. Authentication check visuals.
 React hooks used: `useState()`, `useEffect()`, `useMemo()` and `useRef()`.
 
-2. Header and Footer pages: 
+3. Header and Footer pages: Responsive design. Animated buttons.

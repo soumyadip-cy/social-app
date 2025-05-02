@@ -2,25 +2,25 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import ProfilePage from './ProfilePage';
 
 function App() {
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { user, pass } = location.state || {};
+  const { user, token } = location.state || {};
 
   useEffect(() => {
-    if (!user || !pass) {
+    if (!user || !token) {
       navigate('/login');
     }
-  }, [user, pass, navigate]);
+  }, [user, token, navigate]);
 
   return (
     <>
       <Header />
-      <h3>Welcome, {user}</h3>
-      <p>Password: {pass}</p>
+      <ProfilePage />
       <Footer />
     </>
   )
