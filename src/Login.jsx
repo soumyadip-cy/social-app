@@ -97,7 +97,7 @@ function Login() {
             //Due to lack of actual authentication mechanism, this is just a simulation of how this app might behave by having an authentication token.
             const auth_token = "user_is_authenticated";
             // The value is being passed through the variables using the state property, which can be accessed by creating a useLocation() object;
-            navigate("/", { replace: true, state: { user: username, token: auth_token } });
+            navigate("/", { replace: true, state: { user: username, token: auth_token, activePage: "1" } });
         }
         else {
             setInvalidUsername(true);

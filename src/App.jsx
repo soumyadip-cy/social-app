@@ -3,13 +3,15 @@ import { useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import ProfilePage from './ProfilePage';
+import FriendsPostPage from './FriendsPostPage';
+import ExplorePage from './ExplorePage';
 
 function App() {
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { user, token } = location.state || {};
+  const { user, token, activePage } = location.state || {};
 
   useEffect(() => {
     if (!user || !token) {
@@ -20,7 +22,9 @@ function App() {
   return (
     <>
       <Header />
-      <ProfilePage />
+      {activePage == "1" && <ProfilePage />}
+      {activePage == "2" && <FriendsPostPage />}
+      {activePage == "3" && <ExplorePage />}
       <Footer />
     </>
   )
