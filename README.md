@@ -1,7 +1,7 @@
-# **social-app | Frontend project with React.js and Tailwind CSS**
+# **social-app(In-Progress) | Frontend project with React.js and Tailwind CSS**
 
 Social App is a **frontend project** made using **React.js** and **Tailwind CSS**.
-> GitHub Pages link for this app is ['social-app'](https://soumyadip-cy.github.io/social-app/)
+> GitHub Pages link for this app is [social-app](https://soumyadip-cy.github.io/social-app/)
 
 ---
 
