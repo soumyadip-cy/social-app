@@ -138,7 +138,7 @@ function Login() {
                     style={{ backgroundImage: `url(${LoginImages[nextLoginImageIndex][0]})` }}
                 />
                 <div className={'absolute inset-0 z-100 flex justify-end overflow-scroll w-full h-full bg-transparent'}>
-                    <div className={'flex box-border sm:overflow-scroll w-full lg:w-1/3 3xl:w-full md:min-w-128 min-h-screen h-screen justify-end flex-col gap-10 bg-linear-to-br from-red-300/80 to-blue-600/80 md:transition-[border-radius] transition-[width] duration-500 ' + transitionLoginSpaceRounded} onKeyDown={checkKey}>
+                    <div className={'flex box-border sm:overflow-scroll w-full lg:w-1/3 3xl:w-full md:min-w-128 min-h-screen h-screen justify-end flex-col gap-10 bg-linear-to-br from-sky-500/80 to-indigo-950/80 md:transition-[border-radius] transition-[width] duration-500 ' + transitionLoginSpaceRounded} onKeyDown={checkKey}>
                         <div className={'flex aspect-[9/16] flex-col items-center w-full gap-[5%] justify-center py-5 transition-all duration-500 ' + heightContainer}>
                             <div className='transition-all duration-500'>
                                 <h1 className='text-4xl box-decoration-clone text-white py-1 pl-5 pr-15 rounded-r-md'>
@@ -163,7 +163,7 @@ function Login() {
                                         Password: user
                                     </p>
                                     <div className='flex items-center'>
-                                        <div className='w-full rounded-lg shadow-md bg-blue-900 hover:bg-linear-to-br hover:from-red-600 hover:to-blue-300 transition duration-600'>
+                                        <div className='w-full rounded-lg shadow-md bg-blue-900 hover:bg-linear-to-br hover:from-sky-500 hover:to-indigo-950 transition duration-600'>
                                             <button id="btn-login" className="m-1 px-6 py-3 bg-blue-900 text-white font-semibold rounded-md hover:bg-blue-900 transition duration-300 cursor-pointer" onClick={handleLogin}>
                                                 Login
                                             </button>
