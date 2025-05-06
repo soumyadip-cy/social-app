@@ -1,5 +1,3 @@
-import './stylesheets/Footer.css';
-
 function Footer() {
 
 }

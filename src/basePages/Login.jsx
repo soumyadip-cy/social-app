@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useMemo, useRef } from 'react';
 import AppLogo from './AppLogo';
-import LoginImage1 from './assets/social-app-login-image-1.jpg';
-import LoginImage2 from './assets/social-app-login-image-2.jpg';
-import LoginImage3 from './assets/social-app-login-image-3.jpg';
-import './stylesheets/Login.css';
+import LoginImage1 from '../assets/social-app-login-image-1.jpg';
+import LoginImage2 from '../assets/social-app-login-image-2.jpg';
+import LoginImage3 from '../assets/social-app-login-image-3.jpg';
+import { document } from 'postcss';
 
 function Login() {
 
@@ -116,8 +116,9 @@ function Login() {
                 setInvalidUsername(true);
                 usernameRef.current.focus();
             } else if (password == "") {
-                setInvalidPassword(true);
                 passwordRef.current.focus();
+                if (document.activeElement == passwordRef.current)
+                    setInvalidPassword(true);
             } else
                 handleLogin();
         }
