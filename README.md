@@ -13,7 +13,7 @@ React router hooks used: `useNavigate()` and `useLocation`.
 2. Login page: Responsive design. Changing background image. Authentication check visuals.
 React hooks used: `useState()`, `useEffect()`, `useMemo()` and `useRef()`.
 
-3. Header: Responsive design. Animated buttons.
+3. Header: Responsive design. Animated buttons. A drawer for navigation. A pop-up menu to change profile icons and logout.
 React hooks used: `useState()`.
 
 4. Footer: 
